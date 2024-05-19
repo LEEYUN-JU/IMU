@@ -1,0 +1,10 @@
+﻿^C:\USERS\LABPC\DESKTOP\MFC_SERVER\PCH.CPP
+/c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yc"pch.h" /Fp"X64\DEBUG\MFC_SERVER.PCH" /Fo"X64\DEBUG\\" /Fd"X64\DEBUG\VC142.PDB" /external:W3 /Gd /TP /FC C:\USERS\LABPC\DESKTOP\MFC_SERVER\PCH.CPP
+^C:\USERS\LABPC\DESKTOP\MFC_SERVER\CLIENT_LISTEN.CPP
+/c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"pch.h" /Fp"X64\DEBUG\MFC_SERVER.PCH" /Fo"X64\DEBUG\\" /Fd"X64\DEBUG\VC142.PDB" /external:W3 /Gd /TP /FC C:\USERS\LABPC\DESKTOP\MFC_SERVER\CLIENT_LISTEN.CPP
+^C:\USERS\LABPC\DESKTOP\MFC_SERVER\CLINET_SOCKET.CPP
+/c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"pch.h" /Fp"X64\DEBUG\MFC_SERVER.PCH" /Fo"X64\DEBUG\\" /Fd"X64\DEBUG\VC142.PDB" /external:W3 /Gd /TP /FC C:\USERS\LABPC\DESKTOP\MFC_SERVER\CLINET_SOCKET.CPP
+^C:\USERS\LABPC\DESKTOP\MFC_SERVER\MFC_SERVER.CPP
+/c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"pch.h" /Fp"X64\DEBUG\MFC_SERVER.PCH" /Fo"X64\DEBUG\\" /Fd"X64\DEBUG\VC142.PDB" /external:W3 /Gd /TP /FC C:\USERS\LABPC\DESKTOP\MFC_SERVER\MFC_SERVER.CPP
+^C:\USERS\LABPC\DESKTOP\MFC_SERVER\MFC_SERVERDLG.CPP
+/c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"pch.h" /Fp"X64\DEBUG\MFC_SERVER.PCH" /Fo"X64\DEBUG\\" /Fd"X64\DEBUG\VC142.PDB" /external:W3 /Gd /TP /FC C:\USERS\LABPC\DESKTOP\MFC_SERVER\MFC_SERVERDLG.CPP
