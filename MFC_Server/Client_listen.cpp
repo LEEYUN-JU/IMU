@@ -12,19 +12,19 @@ Client_listen::~Client_listen()
 {
 }
 
-// CListenSocket ë©¤ë²„ í•¨ìˆ˜
+// CListenSocket ¸â¹ö ÇÔ¼ö
 void Client_listen::OnAccept(int nErrorCode)
 {
 	Clinet_socket* pClient = new Clinet_socket;
 	CString str;
 
-	if (Accept(*pClient)) { // í´ë¼ì´ì–¸íŠ¸ ì ‘ì† ìš”ì²­ì´ ì˜¤ë©´ ì„œë²„-í´ë¼ì´ì–¸íŠ¸ë¥¼ ì—°ê²°ì‹œì¼œì¤€ë‹¤
+	if (Accept(*pClient)) { // Å¬¶óÀÌ¾ğÆ® Á¢¼Ó ¿äÃ»ÀÌ ¿À¸é ¼­¹ö-Å¬¶óÀÌ¾ğÆ®¸¦ ¿¬°á½ÃÄÑÁØ´Ù
 		pClient->SetListenSocket(this);
 		m_ptrClientSocketList.AddTail(pClient);
 
-		CMFCServerDlg* pMain = (CMFCServerDlg*)AfxGetMainWnd(); // CSocketServerDlgì˜ í•¸ë“¤ì„ ê°€ì ¸ì˜´
-		str.Format(_T("Client (%d)"), (int)m_ptrClientSocketList.Find(pClient)); // í´ë¼ì´ì–¸íŠ¸ ë²ˆí˜¸(POSITION ê°’)
-		pMain->clientList->AddString(str); // í´ë¼ì´ì–¸íŠ¸ê°€ ì ‘ì†í• ë•Œë§ˆë‹¤ ë¦¬ìŠ¤íŠ¸ì— í´ë¼ì´ì–¸íŠ¸ ì´ë¦„ ì¶”ê°€
+		CMFCServerDlg* pMain = (CMFCServerDlg*)AfxGetMainWnd(); // CSocketServerDlgÀÇ ÇÚµéÀ» °¡Á®¿È
+		str.Format(_T("Client (%d)"), (int)m_ptrClientSocketList.Find(pClient)); // Å¬¶óÀÌ¾ğÆ® ¹øÈ£(POSITION °ª)
+		pMain->clientList->AddString(str); // Å¬¶óÀÌ¾ğÆ®°¡ Á¢¼ÓÇÒ¶§¸¶´Ù ¸®½ºÆ®¿¡ Å¬¶óÀÌ¾ğÆ® ÀÌ¸§ Ãß°¡
 		
 		send(*pClient, "hey", 6, 0);
 	}
@@ -36,7 +36,7 @@ void Client_listen::OnAccept(int nErrorCode)
 	CAsyncSocket::OnAccept(nErrorCode);
 }
 
-// í´ë¼ì´ì–¸íŠ¸ ì—°ê²° ì¢…ë£Œí•¨ìˆ˜
+// Å¬¶óÀÌ¾ğÆ® ¿¬°á Á¾·áÇÔ¼ö
 void Client_listen::CloseClientSocket(CSocket* pClient)
 {	
 	POSITION pos;
@@ -45,7 +45,7 @@ void Client_listen::CloseClientSocket(CSocket* pClient)
 	
 	if (pos != NULL) {
 		if (pClient != NULL) {
-			// í´ë¼ì´ì–¸íŠ¸ ì—°ê²°ì¤‘ì§€í›„ ì¢…ë£Œ
+			// Å¬¶óÀÌ¾ğÆ® ¿¬°áÁßÁöÈÄ Á¾·á
 			pClient->ShutDown();
 			pClient->Close();
 		}
@@ -54,12 +54,12 @@ void Client_listen::CloseClientSocket(CSocket* pClient)
 		CString str1, str2;
 		UINT indx = 0, posNum = 0;
 		pMain->clientList->SetCurSel(0);
-		// ì ‘ì† ì¢…ë£Œë˜ëŠ” í´ë¼ì´ì–¸íŠ¸ ì°¾ê¸°
+		// Á¢¼Ó Á¾·áµÇ´Â Å¬¶óÀÌ¾ğÆ® Ã£±â
 		while (indx < pMain->clientList->GetCount()) {
 			posNum = (int)m_ptrClientSocketList.Find(pClient);
 			pMain->clientList->GetText(indx, str1);
 			str2.Format(_T("%d"), posNum);
-			// ì†Œì¼“ë¦¬ìŠ¤íŠ¸, í´ë¼ì´ì–¸íŠ¸ë¦¬ìŠ¤íŠ¸ë¥¼ ë¹„êµí•´ì„œ ê°™ì€ í´ë¼ì´ì–¸íŠ¸ ë²ˆí˜¸(POSITION ê°’) ìˆìœ¼ë©´ ë¦¬ìŠ¤íŠ¸ì—ì„œ ì‚­ì œ
+			// ¼ÒÄÏ¸®½ºÆ®, Å¬¶óÀÌ¾ğÆ®¸®½ºÆ®¸¦ ºñ±³ÇØ¼­ °°Àº Å¬¶óÀÌ¾ğÆ® ¹øÈ£(POSITION °ª) ÀÖÀ¸¸é ¸®½ºÆ®¿¡¼­ »èÁ¦
 			if (str1.Find(str2) != -1) {
 				AfxMessageBox(str1 + str2);
 				pMain->clientList->DeleteString(indx);
@@ -82,14 +82,14 @@ void Client_listen::SendAllMessage(char* pszMessage)
 	while (pos != NULL) {
 		pClient = (Clinet_socket*)m_ptrClientSocketList.GetNext(pos);
 		if (pClient != NULL) {
-			// Sendí•¨ìˆ˜ì˜ ë‘ë²ˆì§¸ ì¸ìëŠ” ë©”ëª¨ë¦¬ì˜ í¬ê¸°ì¸ë° ìœ ë‹ˆì½”ë“œë¥¼ ì‚¬ìš©í•˜ê³  ìˆìœ¼ë¯€ë¡œ *2ë¥¼ í•œ í¬ê¸°ê°€ ëœë‹¤.
-			// ì´ í•¨ìˆ˜ëŠ” ì „ì†¡í•œ ë°ì´í„°ì˜ ê¸¸ì´ë¥¼ ë°˜í™˜í•œë‹¤.
+			// SendÇÔ¼öÀÇ µÎ¹øÂ° ÀÎÀÚ´Â ¸Ş¸ğ¸®ÀÇ Å©±âÀÎµ¥ À¯´ÏÄÚµå¸¦ »ç¿ëÇÏ°í ÀÖÀ¸¹Ç·Î *2¸¦ ÇÑ Å©±â°¡ µÈ´Ù.
+			// ÀÌ ÇÔ¼ö´Â Àü¼ÛÇÑ µ¥ÀÌÅÍÀÇ ±æÀÌ¸¦ ¹İÈ¯ÇÑ´Ù.
 			send(*pClient, pszMessage, sizeof(pszMessage) + 500, 0);
 
 			//Send(&pClient[2], pszMessage, 0);
 			/*int checkLenOfData = pClient->Send(pszMessage, lstrlen(pszMessage) * 2);
 			if (checkLenOfData != lstrlen(pszMessage) * 2) {
-				AfxMessageBox(_T("ì¼ë¶€ ë°ì´í„°ê°€ ì •ìƒì ì„ ì „ì†¡ë˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤!"));
+				AfxMessageBox(_T("ÀÏºÎ µ¥ÀÌÅÍ°¡ Á¤»óÀûÀ» Àü¼ÛµÇÁö ¸øÇß½À´Ï´Ù!"));
 			}*/
 		}
 	}
