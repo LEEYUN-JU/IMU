@@ -1,0 +1,2 @@
+C:\Users\labpc\Desktop\MFC_opengl_client\x64\Debug\MFC_opengl_client.exe
+C:\Users\labpc\Desktop\MFC_opengl_client\x64\Debug\glew32.dll
