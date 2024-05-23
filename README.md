@@ -12,6 +12,10 @@ MFC_opengl_clinet, MFC_Server두 개 다운받아서 사용해야 사용 가능�
 ---
 
 ## 2. IMU 센서랑 Azure Kinect 동시에 사용하는 프로그램
+
+Server랑 ConsoleApplication 1을 사용한다.
+Console 프로그램이다.
+
 ## 3. IMU 센서 python에서 시각화 하기
 
 Python-Kinect파일 다운로드 후에 사용 가능
